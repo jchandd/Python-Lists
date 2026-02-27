@@ -72,14 +72,40 @@ def remove_item(grocery_list: list, item: str) -> list:
 
 # Define a function to remove an item from the list
 
+
 # If the item exists, remove it
+def view_list(grocery_list: list) -> None:
+    """Displays the current grocery list."""
+    if grocery_list:
+        print("\nYour Grocery List:")
+        for index, item in enumerate(grocery_list, start=1):
+            print(f"{index}. {item}")
+    else:
+        print("Your grocery list is empty.")
+
 
 # If not, display a message saying the item is not in the list
-
+grocery_list = []
 # Define a function to display the grocery list
 
 # If the list is not empty, print all the items with numbers
+while True:
+    print("\nOptions: (1) Add item (2) Remove item (3) View list (4) Exit")
+    choice = input("Enter your choice: ")
 
+    if choice == "1":
+        item = input("Enter an item to add: ")
+        grocery_list = add_item(grocery_list, item)
+    elif choice == "2":
+        item = input("Enter an item to remove: ")
+        grocery_list = remove_item(grocery_list, item)
+    elif choice == "3":
+        view_list(grocery_list)
+    elif choice == "4":
+        print("Goodbye!")
+        break
+    else:
+        print("Invalid choice. Please enter 1, 2, 3, or 4.")
 # If the list is empty, display message
 
 # Start with an empty grocery list
